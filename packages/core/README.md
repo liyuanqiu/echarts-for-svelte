@@ -5,6 +5,8 @@ A very simple echarts(v3.0 & v4.0) wrapper for [svelte](https://svelte.dev).
 Inspired by [echarts-for-react](https://github.com/hustcc/echarts-for-react)
 
 [![lerna](https://img.shields.io/badge/maintained%20with-lerna-cc00ff.svg)](https://lerna.js.org/)
+[![styled with prettier](https://img.shields.io/badge/styled_with-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
+[![minified + gzip](https://badgen.net/bundlephobia/minzip/echarts-for-svelte)](https://bundlephobia.com/result?p=echarts-for-svelte)
 
 # Installation
 
