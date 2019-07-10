@@ -1,6 +1,6 @@
 {
   "name": "echarts-for-svelte",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "license": "MIT",
   "sideEffects": false,
   "main": "dist/index.umd.js",
