@@ -29,7 +29,7 @@
   // the opts of echarts. object, will be used when initial echarts instance by echarts.init
   export let opts = {};
 
-  $: rootClassName = ['', className].join(' ');
+  $: rootClassName = ['root', className].join(' ');
 
   let rootElement;
   let instance;
@@ -52,5 +52,11 @@
     instance.dispose(rootElement);
   });
 </script>
+
+<style>
+  .root {
+    height: 300px;
+  }
+</style>
 
 <div bind:this={rootElement} class={rootClassName} />
