@@ -1,5 +1,5 @@
 <script>
-  import { onMount, onDestroy } from 'svelte';
+  import { onDestroy } from 'svelte';
   import { bind, clear } from 'size-sensor';
 
   // echarts lib
@@ -12,6 +12,9 @@
 
   // the class of echarts div. you can setting the css style of charts by class name.
   export let className = '';
+
+  // the style of echarts div.
+  export let style = '';
 
   // when setOption, not merge the data, default is false.
   // See http://echarts.baidu.com/api.html#echartsInstance.setOption.
@@ -50,23 +53,60 @@
   let rootElement;
   let instance;
 
-  onMount(() => {
+  function renderDom() {
     instance = echarts.init(rootElement, theme, opts);
     instance.setOption(option, notMerge, lazyUpdate);
     if (loading) {
       instance.showLoading(loadingOption);
+    } else {
+      instance.hideLoading();
     }
+  }
+
+  function render() {
+    renderDom();
     Object.entries(events).forEach(([name, cb]) => {
       instance.on(name, cb);
     });
     onChartReady();
     bind(rootElement, () => instance.resize());
-  });
+  }
 
-  onDestroy(() => {
+  function dispose() {
     clear(rootElement);
     instance.dispose(rootElement);
-  });
+  }
+
+  $: {
+    theme;
+    opts;
+    events;
+    if (instance) {
+      dispose();
+      render();
+    }
+  }
+
+  $: {
+    option;
+    notMerge;
+    lazyUpdate;
+    loading;
+    loadingOption;
+    if (rootElement) {
+      renderDom();
+    }
+  }
+
+  $: {
+    style;
+    className;
+    if (instance) {
+      instance.resize();
+    }
+  }
+
+  onDestroy(dispose);
 </script>
 
 <style>
@@ -75,4 +115,4 @@
   }
 </style>
 
-<div bind:this={rootElement} class={rootClassName} />
+<div bind:this={rootElement} class={rootClassName} {style} />
