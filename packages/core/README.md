@@ -23,23 +23,23 @@ npm install --save echarts-for-svelte
 ```html
 <!-- App.svelte -->
 <script>
-  import echarts from "echarts";
-  import ECharts from "echarts-for-svelte";
+  import echarts from 'echarts';
+  import ECharts from 'echarts-for-svelte';
 
   let option = {
     xAxis: {
-      type: "category",
-      data: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
+      type: 'category',
+      data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
     },
     yAxis: {
-      type: "value"
+      type: 'value',
     },
     series: [
       {
         data: [820, 932, 901, 934, 1290, 1330, 1320],
-        type: "line"
-      }
-    ]
+        type: 'line',
+      },
+    ],
   };
 </script>
 
@@ -49,7 +49,7 @@ npm install --save echarts-for-svelte
 # API Reference
 
 ```javascript
-import ECharts from "echarts-for-svelte";
+import ECharts from 'echarts-for-svelte';
 ```
 
 ## Component Props
@@ -64,7 +64,10 @@ export let echarts;
 export let option;
 
 // the class of echarts div. you can setting the css style of charts by class name.
-export let className = "";
+export let className = '';
+
+// the style of echarts div.
+export let style = '';
 
 // when setOption, not merge the data, default is false.
 // See http://echarts.baidu.com/api.html#echartsInstance.setOption.
