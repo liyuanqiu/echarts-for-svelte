@@ -54,12 +54,6 @@
   let instance;
   let prevEvents = {};
 
-  function renderDom() {}
-
-  function render() {
-    renderDom();
-  }
-
   function dispose() {
     if (Boolean(instance) && !isDisposed()) {
       clear(rootElement);
