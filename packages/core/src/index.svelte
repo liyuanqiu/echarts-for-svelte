@@ -66,29 +66,23 @@
     return !Boolean(echarts.getInstanceByDom(rootElement));
   }
 
-  $: {
-    if (rootElement) {
-      console.log('(re)create instance');
-      dispose();
-      instance = echarts.init(rootElement, theme, opts);
-    }
+  $: if (rootElement) {
+    console.log('(re)create instance');
+    dispose();
+    instance = echarts.init(rootElement, theme, opts);
   }
 
-  $: {
-    if (Boolean(instance) && !isDisposed()) {
-      console.log('update option / notMerge / lazyUpdate');
-      instance.setOption(option, notMerge, lazyUpdate);
-    }
+  $: if (Boolean(instance) && !isDisposed()) {
+    console.log('update option / notMerge / lazyUpdate');
+    instance.setOption(option, notMerge, lazyUpdate);
   }
 
-  $: {
-    if (Boolean(instance) && !isDisposed()) {
-      console.log('update loading / loadingOption');
-      if (loading) {
-        instance.showLoading(loadingOption);
-      } else {
-        instance.hideLoading();
-      }
+  $: if (Boolean(instance) && !isDisposed()) {
+    console.log('update loading / loadingOption');
+    if (loading) {
+      instance.showLoading(loadingOption);
+    } else {
+      instance.hideLoading();
     }
   }
 
@@ -105,12 +99,10 @@
     }
   }
 
-  $: {
-    if (Boolean(instance) && !isDisposed()) {
-      console.log('chart ready / bind resize');
-      onChartReady();
-      bind(rootElement, () => instance.resize());
-    }
+  $: if (Boolean(instance) && !isDisposed()) {
+    console.log('chart ready / bind resize');
+    onChartReady();
+    bind(rootElement, () => instance.resize());
   }
 
   $: {
