@@ -52,58 +52,79 @@
 
   let rootElement;
   let instance;
+  let prevEvents = {};
 
-  function renderDom() {
-    instance = echarts.init(rootElement, theme, opts);
-    instance.setOption(option, notMerge, lazyUpdate);
-    if (loading) {
-      instance.showLoading(loadingOption);
-    } else {
-      instance.hideLoading();
-    }
-  }
+  function renderDom() {}
 
   function render() {
     renderDom();
-    Object.entries(events).forEach(([name, cb]) => {
-      instance.on(name, cb);
-    });
-    onChartReady();
-    bind(rootElement, () => instance.resize());
   }
 
   function dispose() {
-    clear(rootElement);
-    instance.dispose(rootElement);
-  }
-
-  $: {
-    theme;
-    opts;
-    events;
-    if (instance) {
-      dispose();
-      render();
+    if (Boolean(instance) && !isDisposed()) {
+      clear(rootElement);
+      instance.dispose(rootElement);
     }
   }
 
+  // instance.isDisposed() always return undefined, maybe a bug
+  function isDisposed() {
+    return !Boolean(echarts.getInstanceByDom(rootElement));
+  }
+
   $: {
-    option;
-    notMerge;
-    lazyUpdate;
-    loading;
-    loadingOption;
     if (rootElement) {
-      renderDom();
+      console.log('(re)create instance');
+      dispose();
+      instance = echarts.init(rootElement, theme, opts);
     }
   }
 
   $: {
-    style;
-    className;
-    if (instance) {
+    if (Boolean(instance) && !isDisposed()) {
+      console.log('update option / notMerge / lazyUpdate');
+      instance.setOption(option, notMerge, lazyUpdate);
+    }
+  }
+
+  $: {
+    if (Boolean(instance) && !isDisposed()) {
+      console.log('update loading / loadingOption');
+      if (loading) {
+        instance.showLoading(loadingOption);
+      } else {
+        instance.hideLoading();
+      }
+    }
+  }
+
+  $: {
+    if (Boolean(instance) && !isDisposed()) {
+      console.log('bind events');
+      Object.entries(prevEvents).forEach(([name, cb]) => {
+        instance.off(name, cb);
+      });
+      Object.entries(events).forEach(([name, cb]) => {
+        instance.on(name, cb);
+      });
+      prevEvents = events;
+    }
+  }
+
+  $: {
+    if (Boolean(instance) && !isDisposed()) {
+      console.log('chart ready / bind resize');
+      onChartReady();
+      bind(rootElement, () => instance.resize());
+    }
+  }
+
+  $: {
+    if (Boolean(instance) && !isDisposed()) {
+      console.log('resize');
       instance.resize();
     }
+    [style, className];
   }
 
   onDestroy(dispose);
