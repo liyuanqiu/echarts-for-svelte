@@ -8,8 +8,10 @@ Inspired by [echarts-for-react](https://github.com/hustcc/echarts-for-react)
 [![styled with prettier](https://img.shields.io/badge/styled_with-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
 [![minified + gzip](https://badgen.net/bundlephobia/minzip/echarts-for-svelte)](https://bundlephobia.com/result?p=echarts-for-svelte)
 
-<img height="40" src="https://liyuanqiu.github.io/github-readme-assets/echarts-logo.png">
-<img height="40" src="https://liyuanqiu.github.io/github-readme-assets/svelte-logo.svg">
+<div>
+  <img height="40" src="https://liyuanqiu.github.io/github-readme-assets/echarts-logo-dark.png">
+  <img height="40" src="https://liyuanqiu.github.io/github-readme-assets/svelte-logo.svg">
+</div>
 
 # Installation
 
