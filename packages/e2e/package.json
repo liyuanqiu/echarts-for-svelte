@@ -1,6 +1,6 @@
 {
   "name": "echarts-for-svelte-e2e",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "private": true,
   "scripts": {
     "start": "yarn tsc && node src/index.js"
