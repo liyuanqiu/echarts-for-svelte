@@ -17,9 +17,7 @@ Inspired by [echarts-for-react](https://github.com/hustcc/echarts-for-react)
 
 ```bash
 yarn add echarts-for-svelte
-
 # or
-
 npm install --save echarts-for-svelte
 ```
 
