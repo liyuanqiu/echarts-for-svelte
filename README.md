@@ -22,7 +22,7 @@ npm install --save echarts-for-svelte
 ```
 
 # Basic Example
-
+👉 Try `echarts-for-svelte` in [CodeSandbox](https://codesandbox.io/s/nice-brattain-o5mik)
 ```html
 <!-- App.svelte -->
 <script>
@@ -48,6 +48,7 @@ npm install --save echarts-for-svelte
 
 <ECharts {echarts} {option} />
 ```
+![echarts](https://liyuanqiu.github.io/github-readme-assets/echarts.png)
 
 # API Reference
 
