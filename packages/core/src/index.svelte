@@ -67,18 +67,18 @@
   }
 
   $: if (rootElement) {
-    console.log('(re)create instance');
+    // console.log('(re)create instance');
     dispose();
     instance = echarts.init(rootElement, theme, opts);
   }
 
   $: if (Boolean(instance) && !isDisposed()) {
-    console.log('update option / notMerge / lazyUpdate');
+    // console.log('update option / notMerge / lazyUpdate');
     instance.setOption(option, notMerge, lazyUpdate);
   }
 
   $: if (Boolean(instance) && !isDisposed()) {
-    console.log('update loading / loadingOption');
+    // console.log('update loading / loadingOption');
     if (loading) {
       instance.showLoading(loadingOption);
     } else {
@@ -88,7 +88,7 @@
 
   $: {
     if (Boolean(instance) && !isDisposed()) {
-      console.log('bind events');
+      // console.log('bind events');
       Object.entries(prevEvents).forEach(([name, cb]) => {
         instance.off(name, cb);
       });
@@ -100,14 +100,14 @@
   }
 
   $: if (Boolean(instance) && !isDisposed()) {
-    console.log('chart ready / bind resize');
+    // console.log('chart ready / bind resize');
     onChartReady();
     bind(rootElement, () => instance.resize());
   }
 
   $: {
     if (Boolean(instance) && !isDisposed()) {
-      console.log('resize');
+      // console.log('resize');
       instance.resize();
     }
     [style, className];
