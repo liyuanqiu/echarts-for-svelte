@@ -1,5 +1,8 @@
 > `echarts-for-svelte` was suspended for a long time, because `Svelte` doesn't support `Typescript`. I planned to relaunch the development process right after `Typescript` is supported.
 
+# IMPORTANT
+`echarts-for-svelte@0.1.11` doesn't support `svelte>3.15.0`, because it seems like `svelte@3.16.0` introduced some breaking changes(didn't make effort to locate them). So at this moment, please do not use `echarts-for-svelte@0.1.11` with `svelte>3.15.0`. I'll fix this issue when `svelte` begins to support `Typescript`.
+
 # echarts-for-svelte
 
 A very simple echarts(v3.0 & v4.0) wrapper for [svelte](https://svelte.dev).
