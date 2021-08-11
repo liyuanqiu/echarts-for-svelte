@@ -387,10 +387,10 @@ detect-libc@^1.0.2:
   resolved "https://registry.yarnpkg.com/detect-libc/-/detect-libc-1.0.3.tgz#fa137c4bd698edf55cd5cd02ac559f91a4c4ba9b"
   integrity sha1-+hN8S9aY7fVc1c0CrFWfkaTEups=
 
-echarts-for-svelte@^0.1.8:
-  version "0.1.8"
-  resolved "https://registry.yarnpkg.com/echarts-for-svelte/-/echarts-for-svelte-0.1.8.tgz#b9eda59cafe331a8cd382cd721cdc359d4f2ee29"
-  integrity sha512-qV4hbhXWleH4YyInQD3pMACtw6jCHd83jt1AADj7ql0sX1sR2nHZpnHmdT0zgyEfREd8VcKd2NbOrsaFU4QmnA==
+echarts-for-svelte@^0.1.11:
+  version "0.1.11"
+  resolved "https://registry.yarnpkg.com/echarts-for-svelte/-/echarts-for-svelte-0.1.11.tgz#8cb0d14d65bb3ae0f147f2eb6bf9213f25f56ffc"
+  integrity sha512-N53EE+WGS5uvghjXvBuUK14phYQ6ArJA4aWGLA0cc6pXDBV9v/1HgJLD0fAl2LPDzW4B9K6H+ZrCG1QxysqRQA==
   dependencies:
     size-sensor "^0.2.5"
 
@@ -1275,9 +1275,9 @@ path-key@^2.0.1:
   integrity sha1-QRyttXTFoUDTpLGRDUDYDMn0C0A=
 
 path-parse@^1.0.6:
-  version "1.0.6"
-  resolved "https://registry.yarnpkg.com/path-parse/-/path-parse-1.0.6.tgz#d62dbb5679405d72c4737ec58600e9ddcf06d24c"
-  integrity sha512-GSmOT2EbHrINBf9SR7CDELwlJ8AENk3Qn7OikK4nFYAu3Ote2+JYNVvkpAEQm3/TLNEJFD/xZJjzyxg3KBWOzw==
+  version "1.0.7"
+  resolved "https://registry.yarnpkg.com/path-parse/-/path-parse-1.0.7.tgz#fbc114b60ca42b30d9daf5858e4bd68bbedb6735"
+  integrity sha512-LDJzPVEEEPR+y48z93A0Ed0yXb8pAByGWo/k5YYdYgpY2/2EsOsksJrq7lOHxryrVOn1ejG6oAp8ahvOIQD8sw==
 
 path-type@^3.0.0:
   version "3.0.0"
